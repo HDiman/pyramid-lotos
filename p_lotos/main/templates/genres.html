@@ -10,4 +10,12 @@
         {% endif %}
     </li>
     {% endrecursetree %}
+    <li>
+        {{item.name}}
+    </li>
+    <li>
+        {% for i in children %}
+            {{i.name}}
+        {% endfor %}
+    </li>
 </ul>

@@ -1,28 +1,39 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+
 from .models import Genre
 
 # Create your views here.
 
-
+# Rename objects
 def rename(request):
-    blues = Genre.objects.get(name='Blues')
-    blues = 'Text'
-    blues.save()
+    obj = get_object_or_404(Genre, name='Samanta')
+    obj.name = 'Sandra'
+    obj.save()
+    return redirect('home')
+
+# Rename objects
+def delete(request):
+    obj = get_object_or_404(Genre, name='Samanta')
+    obj.name = 'Sandra'
+    obj.save()
     return redirect('home')
 
 
 
 def show_genres(request):
-    # blues = Genre.objects.get(name='Blues')
-    # blues = 'Text'
-    # blues.save()
-    # rock = Genre.objects.get(name='Sandra')
-    # Genre.objects.delete(name="Why!", parent=rock)
-    # sandra = Genre.objects.get(name='Sandra')
-    # sandra.clear()
+
+    # # Rename objects
+    # obj = get_object_or_404(Genre, name='Samanta')
+    # obj.name = 'Sandra'
+    # obj.save()
+
+    # children = samanta.get_children()
+
 
 
     data = {
         'genres': Genre.objects.all(),
+        # 'item': samanta,
+        # 'children': children,
     }
     return render(request, "genres.html", context=data)
