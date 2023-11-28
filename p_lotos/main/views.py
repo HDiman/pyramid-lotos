@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-
 from .models import Genre
 
 # Create your views here.
@@ -13,19 +12,15 @@ def rename(request):
 
 # Rename objects
 def delete(request):
-    obj = get_object_or_404(Genre, name='Samanta')
-    obj.name = 'Sandra'
-    obj.save()
+    obj = Genre.objects.get(pk=7)
+    obj.delete()
     return redirect('home')
 
 
 
 def show_genres(request):
-
-    # # Rename objects
-    # obj = get_object_or_404(Genre, name='Samanta')
-    # obj.name = 'Sandra'
-    # obj.save()
+    obj = Genre.objects.get(pk=7)
+    obj.delete()
 
     # children = samanta.get_children()
 
