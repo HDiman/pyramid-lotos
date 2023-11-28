@@ -18,7 +18,8 @@ def show_genres(request):
     # blues.save()
     # rock = Genre.objects.get(name='Sandra')
     # Genre.objects.delete(name="Why!", parent=rock)
-
+    # sandra = Genre.objects.get(name='Sandra')
+    # sandra.clear()
 
 
     data = {
