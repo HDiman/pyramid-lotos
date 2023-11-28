@@ -20,5 +20,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'^genres/$', include('main.show_genres')),
+    path('', include('main.urls')),
 ]
