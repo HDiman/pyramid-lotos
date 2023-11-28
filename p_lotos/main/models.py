@@ -7,3 +7,4 @@ class Genre(MPTTModel):
 
     class MPTTMeta:
         order_insertion_by = ['name']
+
