@@ -27,9 +27,16 @@ def rename(request):
 
 
 def delete(request):
-    # obj = Genre.objects.get(pk=7)
-    # obj.delete()
-    return redirect('home')
+    if request.method == 'POST':
+        del_item = request.POST.get('item')
+        obj = Genre.objects.get(pk=del_item)
+        obj.delete()
+        return redirect('home')
+    else:
+        data = {
+            'genres': Genre.objects.all(),
+            }
+        return render(request, "delete.html", context=data)
 
 
 def show_genres(request):

@@ -1,0 +1,30 @@
+{% load mptt_tags %}
+
+<body>
+<ul>
+    {% recursetree genres %}
+    <li>
+        {{ node.name }}
+        {% if not node.is_leaf_node %}
+        <ul class="children">
+            {{ children }}
+        </ul>
+        {% endif %}
+    </li>
+    {% endrecursetree %}
+</ul>
+
+
+<h2>Удаление полей</h2>
+<form method="POST">
+    {% csrf_token %}
+        <label>Выберите поле</label><br>
+    <div>
+        {% for item in genres %}
+        <input type="checkbox" name="item" value="{{item.id}}" /> {{ item.name }} <br />
+        {% endfor %}
+    </div>
+    </p>
+    <input type="submit" value="Удалить" >
+</form>
+</body>
