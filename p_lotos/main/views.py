@@ -20,10 +20,19 @@ def create(request):
 
 
 def rename(request):
-    # obj = get_object_or_404(Genre, name='Samanta')
-    # obj.name = 'Sandra'
-    # obj.save()
-    return redirect('home')
+    if request.method == 'POST':
+        new_name = request.POST.get('new_name')
+        item = request.POST.get('item')
+        if len(new_name) != 0:
+            obj = Genre.objects.get(pk=item)
+            obj.name = new_name
+            obj.save()
+        return redirect('home')
+    else:
+        data = {
+            'genres': Genre.objects.all(),
+        }
+        return render(request, "rename.html", context=data)
 
 
 def delete(request):
