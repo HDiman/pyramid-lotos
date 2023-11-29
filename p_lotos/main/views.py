@@ -4,8 +4,13 @@ from .models import Genre
 
 # Create your views here
 
-def create(request, id):
+def create(request):
     if request.method == 'POST':
+        child = request.POST.get('child')
+        parent = request.POST.get('item')
+        if len(child) != 0:
+            obj = Genre.objects.get(pk=parent)
+            Genre.objects.create(name=child, parent=obj)
         return redirect('home')
     else:
         data = {

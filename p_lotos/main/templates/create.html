@@ -20,13 +20,13 @@
         {% csrf_token %}
         <p>
             <label>Введите название</label><br>
-            <input type="text" name="name" />
+            <input type="text" name="child" />
         </p>
         <p>
             <label>Выберите родителя</label><br>
         <div>
             {% for item in genres %}
-                <input type="checkbox" name="genres" value="{{item.id}}" /> {{ item.name }} <br />
+                <input type="checkbox" name="item" value="{{item.id}}" /> {{ item.name }} <br />
             {% endfor %}
         </div>
         </p>
