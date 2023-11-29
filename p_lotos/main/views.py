@@ -5,7 +5,6 @@ from .models import Genre
 # Create your views here.
 def rename(request):
     obj = get_object_or_404(Genre, name='Samanta')
-    # obj = Genre.objects.get(pk=3)
     obj.name = 'Sandra'
     obj.save()
     return redirect('home')
@@ -20,7 +19,5 @@ def delete(request):
 def show_genres(request):
     data = {
         'genres': Genre.objects.all(),
-        # 'item': samanta,
-        # 'children': children,
     }
     return render(request, "genres.html", context=data)
