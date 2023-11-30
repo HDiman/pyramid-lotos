@@ -4,16 +4,14 @@
         {{ main_name }}
     </li>
     <li>
-        {{ main_child }}
+        {% for item in main_child %}
+            {{ item.name }}
+        {% endfor %}
     </li>
-<!--    {% for item in genres %}-->
-<!--    <li>-->
-<!--        {% if item.level == 1 %}-->
-<!--            {{ item.name }}-->
-<!--            {{ item.level }}-->
-<!--        {% endif %}-->
-<!--    </li>-->
-<!--    {% endfor %}-->
+    <li>
+        {{ main_child2 }}
+    </li>
+
 </ul>
 
 <a href="/">Главная</a>

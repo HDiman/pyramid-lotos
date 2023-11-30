@@ -43,13 +43,13 @@ def delete(request):
 def show_genres(request):
     main_id = 30
     main_name = Genre.objects.get(pk=main_id)
-    main_children = get_children(Genre,)
-
+    main_children = main_name.get_children()
 
 
     data = {
         'main_name': main_name.name,
-        'main_child': main_children
+        'main_child': main_children,
+        'main_child2': main_children[1].name
     }
     return render(request, "genres.html", context=data)
 
@@ -115,12 +115,14 @@ def edit(request, id):
 def index(request):
     main_id = 30
     main_name = Genre.objects.get(pk=main_id)
-
+    main_children = main_name.get_children()
 
 
     data = {
         'id': main_id,
-        'main_name': main_name.name
+        'main_name': main_name.name,
+        'main_child': main_children[1],
+
     }
     return render(request, 'index.html', context=data)
 
