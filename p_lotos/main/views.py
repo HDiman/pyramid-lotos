@@ -41,7 +41,16 @@ def delete(request):
 
 
 def show_genres(request):
-    data = {'genres': Genre.objects.all()}
+    main_id = 30
+    main_name = Genre.objects.get(pk=main_id)
+    main_children = get_children(Genre,)
+
+
+
+    data = {
+        'main_name': main_name.name,
+        'main_child': main_children
+    }
     return render(request, "genres.html", context=data)
 
 
@@ -104,8 +113,33 @@ def edit(request, id):
 
 
 def index(request):
+    main_id = 30
+    main_name = Genre.objects.get(pk=main_id)
+
+
+
     data = {
-        'id': id,
-        'genres': Genre.objects.all()
+        'id': main_id,
+        'main_name': main_name.name
     }
     return render(request, 'index.html', context=data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Archive @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# def show_genres(request):
+#     data = {
+#         'genres': Genre.objects.all()
+#     }
+#     return render(request, "genres.html", context=data)

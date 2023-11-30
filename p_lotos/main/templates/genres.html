@@ -1,17 +1,24 @@
 {% load mptt_tags %}
 <ul>
-    {% recursetree genres %}
     <li>
-        {{ node.name }}
-        {% if not node.is_leaf_node %}
-        <ul class="children">
-            {{ children }}
-        </ul>
-        {% endif %}
+        {{ main_name }}
     </li>
-    {% endrecursetree %}
+    <li>
+        {{ main_child }}
+    </li>
+<!--    {% for item in genres %}-->
+<!--    <li>-->
+<!--        {% if item.level == 1 %}-->
+<!--            {{ item.name }}-->
+<!--            {{ item.level }}-->
+<!--        {% endif %}-->
+<!--    </li>-->
+<!--    {% endfor %}-->
 </ul>
+
 <a href="/">Главная</a>
 <a href="create">Добавить</a>
 <a href="rename">Переименовать</a>
 <a href="delete">Удалить</a>
+
+
