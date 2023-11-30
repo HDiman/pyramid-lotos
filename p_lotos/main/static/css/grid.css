@@ -1,0 +1,55 @@
+.wrapper {
+    display: grid;
+    grid-gap: 2px;
+    margin: 2px;
+    text-align: center;
+    border: solid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 75px);
+}
+
+.box {
+    border: solid;
+}
+
+.clr {
+    background-color: NavajoWhite;
+}
+
+.mid_clr {
+    background-color: Goldenrod;
+}
+
+
+
+.box3 {
+    background-color: AntiqueWhite;
+}
+
+.box7 {
+    background-color: AntiqueWhite;
+}
+
+.box1 {
+    background-color: AntiqueWhite;
+}
+
+.box9 {
+    background-color: AntiqueWhite;
+}
+
+.box2 {
+    background-color: Azure;
+}
+
+.box4 {
+    background-color: Azure;
+}
+
+.box6 {
+    background-color: Azure;
+}
+
+.box8 {
+    background-color: Azure;
+}
