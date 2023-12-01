@@ -2,6 +2,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Genre
 
 
+def eight(id):
+    main_id = id
+    item0_0 = Genre.objects.get(pk=main_id)
+    item0_0_children = item0_0.get_children()
+    item_num = len(item0_0_children)
+    if item_num < 8:
+        iter_num = 8 - item_num
+        for i in range(iter_num):
+            Genre.objects.create(name='-', parent=item0_0)
+
+
 def create(request):
     if request.method == 'POST':
         child = request.POST.get('child')
@@ -33,7 +44,9 @@ def delete(request):
     if request.method == 'POST':
         del_item = request.POST.get('item')
         obj = Genre.objects.get(pk=del_item)
+        # parent = obj.parent
         obj.delete()
+        # eight(parent.id)
         return redirect('show_genres')
     else:
         data = {'genres': Genre.objects.all()}
@@ -45,11 +58,6 @@ def show_genres(request):
         'genres': Genre.objects.all()
     }
     return render(request, "genres.html", context=data)
-
-
-
-
-
 
 
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -107,13 +115,10 @@ def edit(request, id):
 
 def index(request):
     main_id = 30
+    eight(main_id)
+
     item0_0 = Genre.objects.get(pk=main_id)
     item0_0_children = item0_0.get_children()
-    # num = len(item0_0_children)
-    # for i in range(8):
-    #     if item0_0_children[i].name == False:
-    #         item0_0_children[i].name = '-'
-
 
     data = {
         'item0_0': item0_0.name,
@@ -207,23 +212,3 @@ def index(request):
         'item8_8': '-',
     }
     return render(request, 'index.html', context=data)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Archive @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# def show_genres(request):
-#     data = {
-#         'genres': Genre.objects.all()
-#     }
-#     return render(request, "genres.html", context=data)
