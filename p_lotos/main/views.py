@@ -3,14 +3,13 @@ from .models import Genre
 
 
 def eight(id):
-    main_id = id
-    item0_0 = Genre.objects.get(pk=main_id)
+    item0_0 = Genre.objects.get(pk=id)
     item0_0_children = item0_0.get_children()
     item_num = len(item0_0_children)
-    if item_num < 8:
-        iter_num = 8 - item_num
-        for i in range(iter_num):
-            Genre.objects.create(name='-', parent=item0_0)
+    iter_num = 8 - item_num
+    for i in range(iter_num):
+        Genre.objects.create(name='text', parent=item0_0)
+    return len(item0_0.get_children())
 
 
 def create(request):
@@ -44,9 +43,7 @@ def delete(request):
     if request.method == 'POST':
         del_item = request.POST.get('item')
         obj = Genre.objects.get(pk=del_item)
-        # parent = obj.parent
         obj.delete()
-        # eight(parent.id)
         return redirect('show_genres')
     else:
         data = {'genres': Genre.objects.all()}
@@ -114,32 +111,49 @@ def edit(request, id):
 
 
 def index(request):
-    main_id = 30
-    eight(main_id)
+    id = 30
+    item0_0 = Genre.objects.get(pk=id)
+    item0_0_child = item0_0.get_children()
+    item0_1 = item0_0_child[0]
+    item0_2 = item0_0_child[1]
+    item0_3 = item0_0_child[2]
+    item0_4 = item0_0_child[3]
+    item0_5 = item0_0_child[4]
+    item0_6 = item0_0_child[5]
+    item0_7 = item0_0_child[6]
+    item0_8 = item0_0_child[7]
 
-    item0_0 = Genre.objects.get(pk=main_id)
-    item0_0_children = item0_0.get_children()
+    item1_0_child = item0_1.get_children()
+    item1_0 = item0_1
+    item1_1 = item1_0_child[0]
+    item1_2 = item1_0_child[1]
+    item1_3 = item1_0_child[2]
+    item1_4 = item1_0_child[3]
+    item1_5 = item1_0_child[4]
+    item1_6 = item1_0_child[5]
+    item1_7 = item1_0_child[6]
+    item1_8 = item1_0_child[7]
 
     data = {
         'item0_0': item0_0.name,
-        'item0_1': item0_0_children[0].name,
-        'item0_2': item0_0_children[1].name,
-        'item0_3': item0_0_children[2].name,
-        'item0_4': item0_0_children[3].name,
-        'item0_5': item0_0_children[4].name,
-        'item0_6': item0_0_children[5].name,
-        'item0_7': item0_0_children[6].name,
-        'item0_8': item0_0_children[7].name,
+        'item0_1': item0_1.name,
+        'item0_2': item0_2.name,
+        'item0_3': item0_3.name,
+        'item0_4': item0_4.name,
+        'item0_5': item0_5.name,
+        'item0_6': item0_6.name,
+        'item0_7': item0_7.name,
+        'item0_8': item0_8.name,
 
-        'item1_0': '-',
-        'item1_1': '-',
-        'item1_2': '-',
-        'item1_3': '-',
-        'item1_4': '-',
-        'item1_5': '-',
-        'item1_6': '-',
-        'item1_7': '-',
-        'item1_8': '-',
+        'item1_0': item1_0.name,
+        'item1_1': item1_1.name,
+        'item1_2': item1_2.name,
+        'item1_3': item1_3.name,
+        'item1_4': item1_4.name,
+        'item1_5': item1_5.name,
+        'item1_6': item1_6.name,
+        'item1_7': item1_7.name,
+        'item1_8': item1_8.name,
 
         'item2_0': '-',
         'item2_1': '-',
