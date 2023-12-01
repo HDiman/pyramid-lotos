@@ -1,16 +1,17 @@
 {% load mptt_tags %}
 <ul>
-    <li>
-        {{ main_name }}
-    </li>
-    <li>
-        {% for item in main_child %}
-            {{ item.name }}
-        {% endfor %}
-    </li>
-    <li>
-        {{ main_child2 }}
-    </li>
+    <ul>
+        {% recursetree genres %}
+        <li>
+            {{ node.name }}
+            {% if not node.is_leaf_node %}
+            <ul class="children">
+                {{ children }}
+            </ul>
+            {% endif %}
+        </li>
+        {% endrecursetree %}
+    </ul>
 
 </ul>
 
