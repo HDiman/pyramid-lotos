@@ -61,37 +61,62 @@ def show_genres(request):
 # Here is starting to move DB to Board
 
 def edit(request, id):
-    # grid = Genre.objects.get(id=id)
     if request.method == 'POST':
         userform_0 = request.POST.get('item_0')
+        userform_0_id = request.POST.get('item_0.id')
         userform_1 = request.POST.get('item_1')
+        userform_1_id = request.POST.get('item_1.id')
         userform_2 = request.POST.get('item_2')
+        userform_2_id = request.POST.get('item_2.id')
         userform_3 = request.POST.get('item_3')
+        userform_3_id = request.POST.get('item_3.id')
         userform_4 = request.POST.get('item_4')
+        userform_4_id = request.POST.get('item_4.id')
         userform_5 = request.POST.get('item_5')
+        userform_5_id = request.POST.get('item_5.id')
         userform_6 = request.POST.get('item_6')
+        userform_6_id = request.POST.get('item_6.id')
         userform_7 = request.POST.get('item_7')
+        userform_7_id = request.POST.get('item_7.id')
         userform_8 = request.POST.get('item_8')
+        userform_8_id = request.POST.get('item_8.id')
 
         if len(userform_0) != 0:
-            grid.item_0 = userform_0
+            obj = Genre.objects.get(pk=userform_0_id)
+            obj.name = userform_0
+            obj.save()
         if len(userform_1) != 0:
-            grid.item_1 = userform_1
+            obj = Genre.objects.get(pk=userform_1_id)
+            obj.name = userform_1
+            obj.save()
         if len(userform_2) != 0:
-            grid.item_2 = userform_2
+            obj = Genre.objects.get(pk=userform_2_id)
+            obj.name = userform_2
+            obj.save()
         if len(userform_3) != 0:
-            grid.item_3 = userform_3
+            obj = Genre.objects.get(pk=userform_3_id)
+            obj.name = userform_3
+            obj.save()
         if len(userform_4) != 0:
-            grid.item_4 = userform_4
+            obj = Genre.objects.get(pk=userform_4_id)
+            obj.name = userform_4
+            obj.save()
         if len(userform_5) != 0:
-            grid.item_5 = userform_5
+            obj = Genre.objects.get(pk=userform_5_id)
+            obj.name = userform_5
+            obj.save()
         if len(userform_6) != 0:
-            grid.item_6 = userform_6
+            obj = Genre.objects.get(pk=userform_6_id)
+            obj.name = userform_6
+            obj.save()
         if len(userform_7) != 0:
-            grid.item_7 = userform_7
+            obj = Genre.objects.get(pk=userform_7_id)
+            obj.name = userform_7
+            obj.save()
         if len(userform_8) != 0:
-            grid.item_8 = userform_8
-        grid.save()
+            obj = Genre.objects.get(pk=userform_8_id)
+            obj.name = userform_8
+            obj.save()
         return redirect('home')
     else:
         id_now = 30
