@@ -4,6 +4,7 @@
         {% recursetree genres %}
         <li>
             {{ node.name }}
+            {{ node.id }}
             {% if not node.is_leaf_node %}
             <ul class="children">
                 {{ children }}
