@@ -4,13 +4,24 @@ from .models import Genre
 
 
 def to_fill(id):
+    # check if there are 8 leafs
     item = Genre.objects.get(pk=id)
-    item_children = item.get_children()
-    item_num = len(item_children)
+    item_child = item.get_children()
+    item_num = len(item_child)
     if item_num < 8:
         num = 8 - item_num
         for i in range(num):
             Genre.objects.create(name='-', parent=item)
+
+    # add leafs to leafs
+    for i in range(8):
+        leaf = item_child[i]
+        leaf_child = leaf.get_children()
+        leaf_num = len(leaf_child)
+        if leaf_num < 8:
+            num = 8 - leaf_num
+            for j in range(num):
+                Genre.objects.create(name='-', parent=leaf)
 
 
 def create(request):
