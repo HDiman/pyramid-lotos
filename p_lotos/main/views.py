@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Genre
 
 
+
 def to_fill(id):
     item = Genre.objects.get(pk=id)
     item_children = item.get_children()
@@ -60,6 +61,11 @@ def show_genres(request):
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Here is starting to move DB to Board
 
+def relocate(request, id):
+    id = id
+    return redirect('home')
+
+
 def edit(request, id):
     if request.method == 'POST':
         userform_0 = request.POST.get('item_0')
@@ -117,10 +123,10 @@ def edit(request, id):
             obj = Genre.objects.get(pk=userform_8_id)
             obj.name = userform_8
             obj.save()
-        return redirect('home')
+        return redirect('index.html')
     else:
-        id_now = 30
-        item0_0 = Genre.objects.get(pk=id_now)
+        item_id = 30
+        item0_0 = Genre.objects.get(pk=item_id)
         item0_0_child = item0_0.get_children()
         item0_1 = item0_0_child[0]
         item0_2 = item0_0_child[1]
