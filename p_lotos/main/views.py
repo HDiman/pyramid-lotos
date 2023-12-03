@@ -118,7 +118,7 @@ def edit(request, id):
             obj = Genre.objects.get(pk=userform_8_id)
             obj.name = userform_8
             obj.save()
-        return redirect('index.html')
+        return redirect('home')
     else:
         item_id = 30
         item0_0 = Genre.objects.get(pk=item_id)
