@@ -1,5 +1,17 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, HttpResponse
 from .models import Genre
+from django.urls import reverse
+from django.http import JsonResponse
+
+
+# Блок по Ajax-запросам: Счетчик месяца по акциям
+def count_view(request):
+    stocks = Genre.objects.all()[0]
+    stocks.month += 1
+    stocks.save()
+    data = {'counter': [stocks.month]}
+    return JsonResponse(data)
+
 
 
 
@@ -739,4 +751,9 @@ def relocate(request, id):
         'item8_7': item8_7,
         'item8_8': item8_8,
     }
+
     return render(request, 'relocate.html', context=data)
+
+def your_view(request):
+    url = reverse('http://127.0.0.1:8000')
+    return HttpResponse(url)
