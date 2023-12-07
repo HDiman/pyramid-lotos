@@ -4,15 +4,13 @@ from django.urls import reverse
 from django.http import JsonResponse
 
 
-# Блок по Ajax-запросам: Счетчик месяца по акциям
+# Блок по Ajax-запросам
 def count_view(request):
     stocks = Genre.objects.all()[0]
     stocks.month += 1
     stocks.save()
     data = {'counter': [stocks.month]}
     return JsonResponse(data)
-
-
 
 
 def to_fill(id):
