@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Relocate</title>
+    <title>Ajaxing</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="{% static 'css/grid.css' %}" rel="stylesheet">
 </head>
@@ -127,7 +127,8 @@
             url: '/get_posts/',
             type: 'get',
             dataType: 'json',
-            success: function(response) {}
+            success: function(response) {
+            }
             });
     }
     // Вызываем функцию для получения списка постов
