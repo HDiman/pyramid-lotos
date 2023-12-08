@@ -104,7 +104,13 @@
     <div class="box box9"><p>{{item3_6.name}}</p></div>
     <div class="box clr">
         <p><a href="edit/{{4}}">{{item3_0.name}}</a></p>
-        <p><a href="relocate/{{item3_0.id}}">@</a></p>
+        <div class="text-center">
+            <form action="{% url 'home' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" id="relocate-button" class="btn btn-lg btn-primary">Расширить</button>
+            </form>
+        </div>
+<!--        <p><a href="relocate/{{item3_0.id}}">@</a></p>-->
     </div>
     <div class="box box9"><p>{{item3_2.name}}</p></div>
     <div class="box box7"><p>{{item5_5.name}}</p></div>
@@ -118,6 +124,20 @@
     <div class="box box9"><p>{{item3_3.name}}</p></div>
 </div>
 <a href="show_genres">Список</a>
+
+<script>
+        $(document).ready(function(){
+            $('#relocate-button').click(function(){
+                $.ajax({
+                    url: '{% url "rename" %}',
+                    type: 'GET',
+                    success: function(response){
+                        var item = "hello"
+                    }
+                });
+            });
+        });
+</script>
 
 </body>
 </html>
