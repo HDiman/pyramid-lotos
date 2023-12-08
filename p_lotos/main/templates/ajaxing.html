@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Lotos</title>
+    <title>Relocate</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="{% static 'css/grid.css' %}" rel="stylesheet">
 </head>
@@ -117,8 +117,23 @@
     <div class="box box9"><p>{{item3_4.name}}</p></div>
     <div class="box box9"><p>{{item3_3.name}}</p></div>
 </div>
+<a href="/">Главная</a>
 <a href="show_genres">Список</a>
-<a href="get_posts">AJAX</a>
+
+<script>
+    // Функция для получения списка постов с помощью AJAX
+    function getPosts() {
+        $.ajax({
+            url: '/get_posts/',
+            type: 'get',
+            dataType: 'json',
+            success: function(response) {}
+            });
+    }
+    // Вызываем функцию для получения списка постов
+    getPosts();
+</script>
+
 
 </body>
 </html>

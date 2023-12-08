@@ -9,4 +9,5 @@ urlpatterns = [
     path('rename', views.rename, name="rename"),
     path('delete', views.delete, name="delete"),
     path('show_genres', views.show_genres, name="show_genres"),
+    path('get_posts/', views.get_posts, name='get_posts'),
 ]
