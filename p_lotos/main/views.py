@@ -41,7 +41,7 @@ def create(request):
 
 
 def rename(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         new_name = "Калининград"
         obj = Genre.objects.get(pk=30)
         obj.name = new_name
@@ -49,7 +49,7 @@ def rename(request):
         data = {'name': obj.name}
         return JsonResponse(data)
     else:
-        new_name = "Санкт-Петербург"
+        new_name = "Хостел"
         obj = Genre.objects.get(pk=30)
         obj.name = new_name
         obj.save()
