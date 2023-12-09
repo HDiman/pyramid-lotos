@@ -1,9 +1,5 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from .models import Genre
-from django.urls import reverse
-from django.http import JsonResponse
-
-
 
 
 def to_fill(id):
@@ -75,7 +71,7 @@ def show_genres(request):
 # ========================================================
 # Here is starting to move DB to Board
 
-def edit(request, loc_id):
+def edit(request, id):
     if request.method == 'POST':
         userform_0 = request.POST.get('item_0')
         userform_0_id = request.POST.get('item_0.id')
@@ -245,7 +241,7 @@ def edit(request, loc_id):
         item8_8 = item8_0_child[7]
 
         data = {
-            'loc_id': loc_id,
+            'id': id,
             'item0_0': item0_0,
             'item0_1': item0_1,
             'item0_2': item0_2,
