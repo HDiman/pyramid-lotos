@@ -2,16 +2,14 @@
 
 <body>
 <ul>
-    {% recursetree genres %}
+    {% for item in genres %}
+    {% if item.name != '-' %}
     <li>
-        {{ node.name }}
-        {% if not node.is_leaf_node %}
-        <ul class="children">
-            {{ children }}
-        </ul>
-        {% endif %}
+        {{item.name}}
+        {{item.id}}
     </li>
-    {% endrecursetree %}
+    {% endif %}
+    {% endfor %}
 </ul>
 
 

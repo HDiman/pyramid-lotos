@@ -1,19 +1,16 @@
 {% load mptt_tags %}
+
 <ul>
-    <ul>
-        {% recursetree genres %}
-        <li>
-            {{ node.name }}
-            {{ node.id }}
-            {% if not node.is_leaf_node %}
-            <ul class="children">
-                {{ children }}
-            </ul>
-            {% endif %}
-        </li>
-        {% endrecursetree %}
-    </ul>
+    {% for item in genres %}
+        {% if item.name != '-' %}
+            <li>
+                {{item.name}}
+                {{item.id}}
+            </li>
+        {% endif %}
+    {% endfor %}
 </ul>
+
 
 
 <a href="/">Главная</a>
@@ -24,3 +21,18 @@
 
 
 
+<!--<ul>-->
+<!--    <ul>-->
+<!--        {% recursetree genres %}-->
+<!--        <li>-->
+<!--            {{ node.name }}-->
+<!--            {{ node.id }}-->
+<!--            {% if not node.is_leaf_node %}-->
+<!--            <ul class="children">-->
+<!--                {{ children }}-->
+<!--            </ul>-->
+<!--            {% endif %}-->
+<!--        </li>-->
+<!--        {% endrecursetree %}-->
+<!--    </ul>-->
+<!--</ul>-->

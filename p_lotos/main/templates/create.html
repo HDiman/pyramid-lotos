@@ -1,18 +1,16 @@
 {% load mptt_tags %}
 
 <body>
-    <ul>
-        {% recursetree genres %}
-        <li>
-            {{ node.name }}
-            {% if not node.is_leaf_node %}
-            <ul class="children">
-                {{ children }}
-            </ul>
-            {% endif %}
-        </li>
-        {% endrecursetree %}
-    </ul>
+<ul>
+    {% for item in genres %}
+    {% if item.name != '-' %}
+    <li>
+        {{item.name}}
+        {{item.id}}
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
 
 
 <h2>Добавление полей</h2>
@@ -26,7 +24,9 @@
             <label>Выберите родителя</label><br>
         <div>
             {% for item in genres %}
-                <input type="checkbox" name="item" value="{{item.id}}" /> {{ item.name }} <br />
+                {% if item.name != '-' %}
+                    <input type="checkbox" name="item" value="{{item.id}}" /> {{ item.name }} <br />
+                {% endif %}
             {% endfor %}
         </div>
         </p>
