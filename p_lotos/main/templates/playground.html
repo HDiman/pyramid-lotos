@@ -21,3 +21,178 @@
 <a href="delete">Удалить</a>
 
 
+<!--09.12.23========================-->
+
+{% load static %}
+
+<html>
+<head>
+    <title>Lotos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="{% static 'css/grid.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+    <div class="box box1"><p>{{item7_7.name}}</p></div>
+    <div class="box box1"><p>{{item7_8.name}}</p></div>
+    <div class="box box1"><p>{{item7_1.name}}</p></div>
+    <div class="box box2"><p>{{item8_7.name}}</p></div>
+    <div class="box box2"><p>{{item8_8.name}}</p></div>
+    <div class="box box2"><p>{{item8_1.name}}</p></div>
+    <div class="box box3"><p>{{item1_7.name}}</p></div>
+    <div class="box box3"><p>{{item1_8.name}}</p></div>
+    <div class="box box3"><p>{{item1_1.name}}</p></div>
+    <div class="box box1"><p>{{item7_6.name}}</p></div>
+    <div class="box clr">
+        <p><a href="edit/{{8}}">{{item7_0.name}}</a></p>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" id="7-button" class="btn btn-lg btn-primary">Расширить</button>
+            <input type='hidden' name="item" value="{{item7_0.id}}"/>
+        </form>
+    </div>
+    <div class="box box1"><p>{{item7_2.name}}</p></div>
+    <div class="box box2"><p>{{item8_6.name}}</p></div>
+    <div class="box clr">
+        <p><a href="edit/{{9}}">{{item8_0.name}}</a></p>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" id="8-button" class="btn btn-lg btn-primary">Расширить</button>
+            <input type='hidden' name="item" value="{{item8_0.id}}"/>
+        </form>
+    </div>
+    <div class="box box2"><p>{{item8_2.name}}</p></div>
+    <div class="box box3"><p>{{item1_6.name}}</p></div>
+    <div class="box clr">
+        <p><a href="edit/{{2}}">{{item1_0.name}}</a></p>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" id="1-button" class="btn btn-lg btn-primary">Расширить</button>
+            <input type='hidden' name="item" value="{{item1_0.id}}"/>
+        </form>
+    </div>
+    <div class="box box3"><p>{{item1_2.name}}</p></div>
+    <div class="box box1"><p>{{item7_5.name}}</p></div>
+    <div class="box box1"><p>{{item7_4.name}}</p></div>
+    <div class="box box1"><p>{{item7_3.name}}</p></div>
+    <div class="box box2"><p>{{item8_5.name}}</p></div>
+    <div class="box box2"><p>{{item8_4.name}}</p></div>
+    <div class="box box2"><p>{{item8_3.name}}</p></div>
+    <div class="box box3"><p>{{item1_5.name}}</p></div>
+    <div class="box box3"><p>{{item1_4.name}}</p></div>
+    <div class="box box3"><p>{{item1_3.name}}</p></div>
+    <div class="box box4"><p>{{item6_7.name}}</p></div>
+    <div class="box box4"><p>{{item6_8.name}}</p></div>
+    <div class="box box4"><p>{{item6_1.name}}</p></div>
+    <div class="box mid_clr"><p>{{item0_7.name}}</p></div>
+    <div class="box mid_clr"><p>{{item0_8.name}}</p></div>
+    <div class="box mid_clr"><p>{{item0_1.name}}</p></div>
+    <div class="box box6"><p>{{item2_7.name}}</p></div>
+    <div class="box box6"><p>{{item2_8.name}}</p></div>
+    <div class="box box6"><p>{{item2_1.name}}</p></div>
+    <div class="box box4"><p>{{item6_6.name}}</p></div>
+    <div class="box clr">
+        <p><a href="edit/{{7}}">{{item6_0.name}}</a></p>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" id="6-button" class="btn btn-lg btn-primary">Расширить</button>
+            <input type='hidden' name="item" value="{{item6_0.id}}"/>
+        </form>
+    </div>
+    <div class="box box4"><p>{{item6_2.name}}</p></div>
+    <div class="box mid_clr"><p>{{item0_6.name}}</p></div>
+    <div class="box clr">
+        <p><a href="edit/{{1}}">{{item0_0.name}}</a></p>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" id="main-button" class="btn btn-lg btn-primary">Начало</button>
+            <input type='hidden' name="item" value="30"/>
+        </form>
+    </div>
+    <div class="box mid_clr"><p>{{item0_2.name}}</p></div>
+    <div class="box box6"><p>{{item2_6.name}}</p></div>
+    <div class="box clr">
+        <p><a href="edit/{{3}}">{{item2_0.name}}</a></p>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" id="2-button" class="btn btn-lg btn-primary">Расширить</button>
+            <input type='hidden' name="item" value="{{item2_0.id}}"/>
+        </form>
+    </div>
+    <div class="box box6"><p>{{item2_2.name}}</p></div>
+    <div class="box box4"><p>{{item6_5.name}}</p></div>
+    <div class="box box4"><p>{{item6_4.name}}</p></div>
+    <div class="box box4"><p>{{item6_3.name}}</p></div>
+    <div class="box mid_clr"><p>{{item0_5.name}}</p></div>
+    <div class="box mid_clr"><p>{{item0_4.name}}</p></div>
+    <div class="box mid_clr"><p>{{item0_3.name}}</p></div>
+    <div class="box box6"><p>{{item2_5.name}}</p></div>
+    <div class="box box6"><p>{{item2_4.name}}</p></div>
+    <div class="box box6"><p>{{item2_3.name}}</p></div>
+    <div class="box box7"><p>{{item5_7.name}}</p></div>
+    <div class="box box7"><p>{{item5_8.name}}</p></div>
+    <div class="box box7"><p>{{item5_1.name}}</p></div>
+    <div class="box box8"><p>{{item4_7.name}}</p></div>
+    <div class="box box8"><p>{{item4_8.name}}</p></div>
+    <div class="box box8"><p>{{item4_1.name}}</p></div>
+    <div class="box box9"><p>{{item3_7.name}}</p></div>
+    <div class="box box9"><p>{{item3_8.name}}</p></div>
+    <div class="box box9"><p>{{item3_1.name}}</p></div>
+    <div class="box box7"><p>{{item5_6.name}}</p></div>
+    <div class="box clr">
+        <p><a href="edit/{{6}}">{{item5_0.name}}</a></p>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" id="5-button" class="btn btn-lg btn-primary">Расширить</button>
+            <input type='hidden' name="item" value="{{item5_0.id}}"/>
+        </form>
+    </div>
+    <div class="box box7"><p>{{item5_2.name}}</p></div>
+    <div class="box box8"><p>{{item4_6.name}}</p></div>
+    <div class="box clr">
+        <p><a href="edit/{{5}}">{{item4_0.name}}</a></p>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" id="4-button" class="btn btn-lg btn-primary">Расширить</button>
+            <input type='hidden' name="item" value="{{item4_0.id}}"/>
+        </form>
+    </div>
+    <div class="box box8"><p>{{item4_2.name}}</p></div>
+    <div class="box box9"><p>{{item3_6.name}}</p></div>
+    <div class="box clr">
+        <p><a href="edit/{{4}}">{{item3_0.name}}</a></p>
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" id="3-button" class="btn btn-lg btn-primary">Расширить</button>
+            <input type='hidden' name="item" value="{{item3_0.id}}"/>
+        </form>
+    </div>
+    <div class="box box9"><p>{{item3_2.name}}</p></div>
+    <div class="box box7"><p>{{item5_5.name}}</p></div>
+    <div class="box box7"><p>{{item5_4.name}}</p></div>
+    <div class="box box7"><p>{{item5_3.name}}</p></div>
+    <div class="box box8"><p>{{item4_5.name}}</p></div>
+    <div class="box box8"><p>{{item4_4.name}}</p></div>
+    <div class="box box8"><p>{{item4_3.name}}</p></div>
+    <div class="box box9"><p>{{item3_5.name}}</p></div>
+    <div class="box box9"><p>{{item3_4.name}}</p></div>
+    <div class="box box9"><p>{{item3_3.name}}</p></div>
+</div>
+<a href="show_genres">Список</a>
+
+<!--<script>-->
+<!--        $(document).ready(function(){-->
+<!--            $('#relocate-button').click(function(){-->
+<!--                $.ajax({-->
+<!--                    url: '{% url "rename" %}',-->
+<!--                    type: 'GET',-->
+<!--                    success: function(response){-->
+<!--                        var item = "hello"-->
+<!--                    }-->
+<!--                });-->
+<!--            });-->
+<!--        });-->
+<!--</script>-->
+
+</body>
+</html>

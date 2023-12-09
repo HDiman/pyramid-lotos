@@ -42,14 +42,14 @@ def create(request):
 
 def rename(request):
     if request.method == 'GET':
-        new_name = "Калининград"
+        new_name = "Москва-1"
         obj = Genre.objects.get(pk=30)
         obj.name = new_name
         obj.save()
         data = {'name': obj.name}
         return JsonResponse(data)
     else:
-        new_name = "Хостел"
+        new_name = "Москва-2"
         obj = Genre.objects.get(pk=30)
         obj.name = new_name
         obj.save()
@@ -150,7 +150,9 @@ def edit(request, id):
             obj.save()
         return redirect('home')
     else:
-        item_id = 30
+        edit_id = Genre.objects.get(pk=4255)
+        item_id = edit_id.name
+
         item0_0 = Genre.objects.get(pk=item_id)
         item0_0_child = item0_0.get_children()
         item0_1 = item0_0_child[0]
@@ -354,6 +356,12 @@ def edit(request, id):
 
 
 def index(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('item')
+        obj = Genre.objects.get(pk=4255)
+        obj.name = user_id
+        obj.save()
+
     item_id = Genre.objects.get(pk=4255)
     main_id = item_id.name
     to_fill(main_id)
@@ -556,207 +564,3 @@ def index(request):
         'item8_8': item8_8,
     }
     return render(request, 'index.html', context=data)
-
-
-def relocate(request, id):
-    new_id = id
-    to_fill(new_id)
-    item0_0 = Genre.objects.get(pk=new_id)
-    item0_0_child = item0_0.get_children()
-    item0_1 = item0_0_child[0]
-    item0_2 = item0_0_child[1]
-    item0_3 = item0_0_child[2]
-    item0_4 = item0_0_child[3]
-    item0_5 = item0_0_child[4]
-    item0_6 = item0_0_child[5]
-    item0_7 = item0_0_child[6]
-    item0_8 = item0_0_child[7]
-    to_fill(item0_1.id)
-    to_fill(item0_2.id)
-    to_fill(item0_3.id)
-    to_fill(item0_4.id)
-    to_fill(item0_5.id)
-    to_fill(item0_6.id)
-    to_fill(item0_7.id)
-    to_fill(item0_8.id)
-
-    item1_0_child = item0_1.get_children()
-    item1_0 = item0_1
-    item1_1 = item1_0_child[0]
-    item1_2 = item1_0_child[1]
-    item1_3 = item1_0_child[2]
-    item1_4 = item1_0_child[3]
-    item1_5 = item1_0_child[4]
-    item1_6 = item1_0_child[5]
-    item1_7 = item1_0_child[6]
-    item1_8 = item1_0_child[7]
-
-    item2_0_child = item0_2.get_children()
-    item2_0 = item0_2
-    item2_1 = item2_0_child[0]
-    item2_2 = item2_0_child[1]
-    item2_3 = item2_0_child[2]
-    item2_4 = item2_0_child[3]
-    item2_5 = item2_0_child[4]
-    item2_6 = item2_0_child[5]
-    item2_7 = item2_0_child[6]
-    item2_8 = item2_0_child[7]
-
-    item3_0_child = item0_3.get_children()
-    item3_0 = item0_3
-    item3_1 = item3_0_child[0]
-    item3_2 = item3_0_child[1]
-    item3_3 = item3_0_child[2]
-    item3_4 = item3_0_child[3]
-    item3_5 = item3_0_child[4]
-    item3_6 = item3_0_child[5]
-    item3_7 = item3_0_child[6]
-    item3_8 = item3_0_child[7]
-
-    item4_0_child = item0_4.get_children()
-    item4_0 = item0_4
-    item4_1 = item4_0_child[0]
-    item4_2 = item4_0_child[1]
-    item4_3 = item4_0_child[2]
-    item4_4 = item4_0_child[3]
-    item4_5 = item4_0_child[4]
-    item4_6 = item4_0_child[5]
-    item4_7 = item4_0_child[6]
-    item4_8 = item4_0_child[7]
-
-    item5_0_child = item0_5.get_children()
-    item5_0 = item0_5
-    item5_1 = item5_0_child[0]
-    item5_2 = item5_0_child[1]
-    item5_3 = item5_0_child[2]
-    item5_4 = item5_0_child[3]
-    item5_5 = item5_0_child[4]
-    item5_6 = item5_0_child[5]
-    item5_7 = item5_0_child[6]
-    item5_8 = item5_0_child[7]
-
-    item6_0_child = item0_6.get_children()
-    item6_0 = item0_6
-    item6_1 = item6_0_child[0]
-    item6_2 = item6_0_child[1]
-    item6_3 = item6_0_child[2]
-    item6_4 = item6_0_child[3]
-    item6_5 = item6_0_child[4]
-    item6_6 = item6_0_child[5]
-    item6_7 = item6_0_child[6]
-    item6_8 = item6_0_child[7]
-
-    item7_0_child = item0_7.get_children()
-    item7_0 = item0_7
-    item7_1 = item7_0_child[0]
-    item7_2 = item7_0_child[1]
-    item7_3 = item7_0_child[2]
-    item7_4 = item7_0_child[3]
-    item7_5 = item7_0_child[4]
-    item7_6 = item7_0_child[5]
-    item7_7 = item7_0_child[6]
-    item7_8 = item7_0_child[7]
-
-    item8_0_child = item0_8.get_children()
-    item8_0 = item0_8
-    item8_1 = item8_0_child[0]
-    item8_2 = item8_0_child[1]
-    item8_3 = item8_0_child[2]
-    item8_4 = item8_0_child[3]
-    item8_5 = item8_0_child[4]
-    item8_6 = item8_0_child[5]
-    item8_7 = item8_0_child[6]
-    item8_8 = item8_0_child[7]
-
-    data = {
-        'item0_0': item0_0,
-        'item0_1': item0_1,
-        'item0_2': item0_2,
-        'item0_3': item0_3,
-        'item0_4': item0_4,
-        'item0_5': item0_5,
-        'item0_6': item0_6,
-        'item0_7': item0_7,
-        'item0_8': item0_8,
-
-        'item1_0': item1_0,
-        'item1_1': item1_1,
-        'item1_2': item1_2,
-        'item1_3': item1_3,
-        'item1_4': item1_4,
-        'item1_5': item1_5,
-        'item1_6': item1_6,
-        'item1_7': item1_7,
-        'item1_8': item1_8,
-
-        'item2_0': item2_0,
-        'item2_1': item2_1,
-        'item2_2': item2_2,
-        'item2_3': item2_3,
-        'item2_4': item2_4,
-        'item2_5': item2_5,
-        'item2_6': item2_6,
-        'item2_7': item2_7,
-        'item2_8': item2_8,
-
-        'item3_0': item3_0,
-        'item3_1': item3_1,
-        'item3_2': item3_2,
-        'item3_3': item3_3,
-        'item3_4': item3_4,
-        'item3_5': item3_5,
-        'item3_6': item3_6,
-        'item3_7': item3_7,
-        'item3_8': item3_8,
-
-        'item4_0': item4_0,
-        'item4_1': item4_1,
-        'item4_2': item4_2,
-        'item4_3': item4_3,
-        'item4_4': item4_4,
-        'item4_5': item4_5,
-        'item4_6': item4_6,
-        'item4_7': item4_7,
-        'item4_8': item4_8,
-
-        'item5_0': item5_0,
-        'item5_1': item5_1,
-        'item5_2': item5_2,
-        'item5_3': item5_3,
-        'item5_4': item5_4,
-        'item5_5': item5_5,
-        'item5_6': item5_6,
-        'item5_7': item5_7,
-        'item5_8': item5_8,
-
-        'item6_0': item6_0,
-        'item6_1': item6_1,
-        'item6_2': item6_2,
-        'item6_3': item6_3,
-        'item6_4': item6_4,
-        'item6_5': item6_5,
-        'item6_6': item6_6,
-        'item6_7': item6_7,
-        'item6_8': item6_8,
-
-        'item7_0': item7_0,
-        'item7_1': item7_1,
-        'item7_2': item7_2,
-        'item7_3': item7_3,
-        'item7_4': item7_4,
-        'item7_5': item7_5,
-        'item7_6': item7_6,
-        'item7_7': item7_7,
-        'item7_8': item7_8,
-
-        'item8_0': item8_0,
-        'item8_1': item8_1,
-        'item8_2': item8_2,
-        'item8_3': item8_3,
-        'item8_4': item8_4,
-        'item8_5': item8_5,
-        'item8_6': item8_6,
-        'item8_7': item8_7,
-        'item8_8': item8_8,
-    }
-    return render(request, 'relocate.html', context=data)
