@@ -1,0 +1,24 @@
+{% load mptt_tags %}
+
+<h3>{{ item.name }}</h3>
+<form method="POST">
+    {% csrf_token %}
+    <ul>
+        {% for child in children %}
+        <li>
+            <input type="checkbox" name="item" value="{{child.id}}" /> {{ child.name }} <br />
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        <input type="submit" value="Отправить" >
+    </div>
+</form>
+
+<div>
+    <a href="/">Главная</a>
+    <a href="create">Добавить</a>
+    <a href="rename">Переименовать</a>
+    <a href="delete">Удалить</a>
+</div>

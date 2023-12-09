@@ -30,6 +30,7 @@ def create(request):
         if len(child) != 0:
             obj = Genre.objects.get(pk=parent)
             Genre.objects.create(name=child, parent=obj)
+            to_fill(child.id)
         return redirect('show_genres')
     else:
         data = {'genres': Genre.objects.all()}
@@ -68,10 +69,27 @@ def show_genres(request):
     return render(request, "genres.html", context=data)
 
 
+def themes(request):
+    if request.method == 'POST':
+        item = request.POST.get('item')
+        obj = Genre.objects.get(pk=4255)
+        obj.name = item
+        obj.save()
+        return redirect('home')
+    else:
+        item = Genre.objects.get(pk=11515)
+        item_children = item.get_children()
+        data = {
+            'item': item,
+            'children': item_children,
+        }
+        return render(request, "themes.html", context=data)
+
+
 # ========================================================
 # Here is starting to move DB to Board
 
-def edit(request, id):
+def edit(request, loc_id):
     if request.method == 'POST':
         userform_0 = request.POST.get('item_0')
         userform_0_id = request.POST.get('item_0.id')
@@ -241,7 +259,7 @@ def edit(request, id):
         item8_8 = item8_0_child[7]
 
         data = {
-            'id': id,
+            'loc_id': loc_id,
             'item0_0': item0_0,
             'item0_1': item0_1,
             'item0_2': item0_2,
