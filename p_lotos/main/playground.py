@@ -1301,3 +1301,25 @@ def relocate(request, id):
         'item8_8': item8_8,
     }
     return render(request, 'relocate.html', context=data)
+
+
+# ==================
+def rename(request):
+    if request.method == 'GET':
+        new_name = "Москва-1"
+        obj = Genre.objects.get(pk=30)
+        obj.name = new_name
+        obj.save()
+        data = {'name': obj.name}
+        return JsonResponse(data)
+    else:
+        new_name = "Москва-2"
+        obj = Genre.objects.get(pk=30)
+        obj.name = new_name
+        obj.save()
+        data = {'name': obj.name}
+        return JsonResponse(data)
+
+
+# ===================
+

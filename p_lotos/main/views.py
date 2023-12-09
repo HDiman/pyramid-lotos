@@ -41,33 +41,17 @@ def create(request):
 
 
 def rename(request):
-    if request.method == 'GET':
-        new_name = "Москва-1"
-        obj = Genre.objects.get(pk=30)
-        obj.name = new_name
-        obj.save()
-        data = {'name': obj.name}
-        return JsonResponse(data)
+    if request.method == 'POST':
+        new_name = request.POST.get('new_name')
+        item = request.POST.get('item')
+        if len(new_name) != 0:
+            obj = Genre.objects.get(pk=item)
+            obj.name = new_name
+            obj.save()
+        return redirect('show_genres')
     else:
-        new_name = "Москва-2"
-        obj = Genre.objects.get(pk=30)
-        obj.name = new_name
-        obj.save()
-        data = {'name': obj.name}
-        return JsonResponse(data)
-
-# def rename(request):
-#     if request.method == 'POST':
-#         new_name = request.POST.get('new_name')
-#         item = request.POST.get('item')
-#         if len(new_name) != 0:
-#             obj = Genre.objects.get(pk=item)
-#             obj.name = new_name
-#             obj.save()
-#         return redirect('show_genres')
-#     else:
-#         data = {'genres': Genre.objects.all()}
-#         return render(request, "rename.html", context=data)
+        data = {'genres': Genre.objects.all()}
+        return render(request, "rename.html", context=data)
 
 
 def delete(request):
@@ -88,10 +72,10 @@ def show_genres(request):
     return render(request, "genres.html", context=data)
 
 
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# ========================================================
 # Here is starting to move DB to Board
 
-def edit(request, id):
+def edit(request, loc_id):
     if request.method == 'POST':
         userform_0 = request.POST.get('item_0')
         userform_0_id = request.POST.get('item_0.id')
@@ -261,7 +245,7 @@ def edit(request, id):
         item8_8 = item8_0_child[7]
 
         data = {
-            'id': id,
+            'loc_id': loc_id,
             'item0_0': item0_0,
             'item0_1': item0_1,
             'item0_2': item0_2,

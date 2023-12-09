@@ -9,7 +9,7 @@
 <form method="POST">
   {% csrf_token %}
   <div class="wrapper">
-    {% if id == 8 %}
+    {% if loc_id == 8 %}
     <div class="box box1">{{item7_7.name}}
       <input type="text" name="item_7" />
       <input type='hidden' name="item_7.id" value="{{item7_7.id}}"/>
@@ -27,7 +27,7 @@
     <div class="box box1">{{item7_8.name}}</div>
     <div class="box box1">{{item7_1.name}}</div>
     {% endif %}
-    {% if id == 9 %}
+    {% if loc_id == 9 %}
     <div class="box box2">{{item8_7.name}}
       <input type="text" name="item_7" />
       <input type='hidden' name="item_7.id" value="{{item8_7.id}}"/>
@@ -45,7 +45,7 @@
     <div class="box box2">{{item8_8.name}}</div>
     <div class="box box2">{{item8_1.name}}</div>
     {% endif %}
-    {% if id == 2 %}
+    {% if loc_id == 2 %}
     <div class="box box3">{{item1_7.name}}
       <input type="text" name="item_7" />
       <input type='hidden' name="item_7.id" value="{{item1_7.id}}"/>
@@ -63,7 +63,7 @@
     <div class="box box3">{{item1_8.name}}</div>
     <div class="box box3">{{item1_1.name}}</div>
     {% endif %}
-    {% if id == 8 %}
+    {% if loc_id == 8 %}
     <div class="box box1">{{item7_6.name}}
       <input type="text" name="item_6" />
       <input type='hidden' name="item_6.id" value="{{item7_6.id}}"/>
@@ -81,7 +81,7 @@
     <div class="box clr">{{item7_0.name}}</div>
     <div class="box box1">{{item7_2.name}}</div>
     {% endif %}
-    {% if id == 9 %}
+    {% if loc_id == 9 %}
     <div class="box box2">{{item8_6.name}}
       <input type="text" name="item_6" />
       <input type='hidden' name="item_6.id" value="{{item8_6.id}}"/>
@@ -99,7 +99,7 @@
     <div class="box clr">{{item8_0.name}}</div>
     <div class="box box2">{{item8_2.name}}</div>
     {% endif %}
-    {% if id == 2 %}
+    {% if loc_id == 2 %}
     <div class="box box3">{{item1_6.name}}
       <input type="text" name="item_6" />
       <input type='hidden' name="item_6.id" value="{{item1_6.id}}"/>
@@ -117,7 +117,7 @@
     <div class="box clr">{{item1_0.name}}</div>
     <div class="box box3">{{item1_2.name}}</div>
     {% endif %}
-    {% if id == 8 %}
+    {% if loc_id == 8 %}
     <div class="box box1">{{item7_5.name}}
       <input type="text" name="item_5" />
       <input type='hidden' name="item_5.id" value="{{item7_5.id}}"/>
@@ -135,7 +135,7 @@
     <div class="box box1">{{item7_4.name}}</div>
     <div class="box box1">{{item7_3.name}}</div>
     {% endif %}
-    {% if id == 9 %}
+    {% if loc_id == 9 %}
     <div class="box box2">{{item8_5.name}}
       <input type="text" name="item_5" />
       <input type='hidden' name="item_5.id" value="{{item8_5.id}}"/>
@@ -153,7 +153,7 @@
     <div class="box box2">{{item8_4.name}}</div>
     <div class="box box2">{{item8_3.name}}</div>
     {% endif %}
-    {% if id == 2 %}
+    {% if loc_id == 2 %}
     <div class="box box3">{{item1_5.name}}
       <input type="text" name="item_5" />
       <input type='hidden' name="item_5.id" value="{{item1_5.id}}"/>
@@ -171,7 +171,7 @@
     <div class="box box3">{{item1_4.name}}</div>
     <div class="box box3">{{item1_3.name}}</div>
     {% endif %}
-    {% if id == 7 %}
+    {% if loc_id == 7 %}
     <div class="box box4">{{item6_7.name}}
       <input type="text" name="item_7" />
       <input type='hidden' name="item_7.id" value="{{item6_7.id}}"/>
@@ -189,7 +189,7 @@
     <div class="box box4">{{item6_8.name}}</div>
     <div class="box box4">{{item6_1.name}}</div>
     {% endif %}
-    {% if id == 1 %}
+    {% if loc_id == 1 %}
     <div class="box mid_clr">{{item0_7.name}}
       <input type="text" name="item_7" />
       <input type='hidden' name="item_7.id" value="{{item0_7.id}}"/>
@@ -207,7 +207,7 @@
     <div class="box mid_clr">{{item0_8.name}}</div>
     <div class="box mid_clr">{{item0_1.name}}</div>
     {% endif %}
-    {% if id == 3 %}
+    {% if loc_id == 3 %}
     <div class="box box6">{{item2_7.name}}
       <input type="text" name="item_7" />
       <input type='hidden' name="item_7.id" value="{{item2_7.id}}"/>
@@ -225,7 +225,7 @@
     <div class="box box6">{{item2_8.name}}</div>
     <div class="box box6">{{item2_1.name}}</div>
     {% endif %}
-    {% if id == 7 %}
+    {% if loc_id == 7 %}
     <div class="box box4">{{item6_6.name}}
       <input type="text" name="item_6" />
       <input type='hidden' name="item_6.id" value="{{item6_6.id}}"/>
@@ -243,7 +243,7 @@
     <div class="box clr">{{item6_0.name}}</div>
     <div class="box box4">{{item6_2.name}}</div>
     {% endif %}
-    {% if id == 1 %}
+    {% if loc_id == 1 %}
     <div class="box mid_clr">{{item0_6.name}}
       <input type="text" name="item_6" />
       <input type='hidden' name="item_6.id" value="{{item0_6.id}}"/>
@@ -261,7 +261,7 @@
     <div class="box clr">{{item0_0.name}}</div>
     <div class="box mid_clr">{{item0_2.name}}</div>
     {% endif %}
-    {% if id == 3 %}
+    {% if loc_id == 3 %}
     <div class="box box6">{{item2_6.name}}
       <input type="text" name="item_6" />
       <input type='hidden' name="item_6.id" value="{{item2_6.id}}"/>
@@ -279,7 +279,7 @@
     <div class="box clr">{{item2_0.name}}</div>
     <div class="box box6">{{item2_2.name}}</div>
     {% endif %}
-    {% if id == 7 %}
+    {% if loc_id == 7 %}
     <div class="box box4">{{item6_5.name}}
       <input type="text" name="item_5" />
       <input type='hidden' name="item_5.id" value="{{item6_5.id}}"/>
@@ -297,7 +297,7 @@
     <div class="box box4">{{item6_4.name}}</div>
     <div class="box box4">{{gitem6_3.name}}</div>
     {% endif %}
-    {% if id == 1 %}
+    {% if loc_id == 1 %}
     <div class="box mid_clr">{{item0_5.name}}
       <input type="text" name="item_5" />
       <input type='hidden' name="item_5.id" value="{{item0_5.id}}"/>
@@ -315,7 +315,7 @@
     <div class="box mid_clr">{{item0_4.name}}</div>
     <div class="box mid_clr">{{item0_3.name}}</div>
     {% endif %}
-    {% if id == 3 %}
+    {% if loc_id == 3 %}
     <div class="box box6">{{item2_5.name}}
       <input type="text" name="item_5" />
       <input type='hidden' name="item_5.id" value="{{item2_5.id}}"/>
@@ -333,7 +333,7 @@
     <div class="box box6">{{item2_4.name}}</div>
     <div class="box box6">{{gitem2_3.name}}</div>
     {% endif %}
-    {% if id == 6 %}
+    {% if loc_id == 6 %}
     <div class="box box7">{{item5_7.name}}
       <input type="text" name="item_7" />
       <input type='hidden' name="item_7.id" value="{{item5_7.id}}"/>
@@ -351,7 +351,7 @@
     <div class="box box7">{{item5_8.name}}</div>
     <div class="box box7">{{item5_1.name}}</div>
     {% endif %}
-    {% if id == 5 %}
+    {% if loc_id == 5 %}
     <div class="box box8">{{item4_7.name}}
       <input type="text" name="item_7" />
       <input type='hidden' name="item_7.id" value="{{item4_7.id}}"/>
@@ -369,7 +369,7 @@
     <div class="box box8">{{item4_8.name}}</div>
     <div class="box box8">{{item4_1.name}}</div>
     {% endif %}
-    {% if id == 4 %}
+    {% if loc_id == 4 %}
     <div class="box box9">{{item3_7.name}}
       <input type="text" name="item_7" />
       <input type='hidden' name="item_7.id" value="{{item3_7.id}}"/>
@@ -387,7 +387,7 @@
     <div class="box box9">{{item3_8.name}}</div>
     <div class="box box9">{{item3_1.name}}</div>
     {% endif %}
-    {% if id == 6 %}
+    {% if loc_id == 6 %}
     <div class="box box7">{{item5_6.name}}
       <input type="text" name="item_6" />
       <input type='hidden' name="item_6.id" value="{{item5_6.id}}"/>
@@ -405,7 +405,7 @@
     <div class="box clr">{{item5_0.name}}</div>
     <div class="box box7">{{item5_2.name}}</div>
     {% endif %}
-    {% if id == 5 %}
+    {% if loc_id == 5 %}
     <div class="box box8">{{item4_6.name}}
       <input type="text" name="item_6" />
       <input type='hidden' name="item_6.id" value="{{item4_6.id}}"/>
@@ -423,7 +423,7 @@
     <div class="box clr">{{gitem4_0.name}}</div>
     <div class="box box8">{{item4_2.name}}</div>
     {% endif %}
-    {% if id == 4 %}
+    {% if loc_id == 4 %}
     <div class="box box9">{{item3_6.name}}
       <input type="text" name="item_6" />
       <input type='hidden' name="item_6.id" value="{{item3_6.id}}"/>
@@ -441,7 +441,7 @@
     <div class="box clr">{{item3_0.name}}</div>
     <div class="box box9">{{item3_2.name}}</div>
     {% endif %}
-    {% if id == 6 %}
+    {% if loc_id == 6 %}
     <div class="box box7">{{item5_5.name}}
       <input type="text" name="item_5" />
       <input type='hidden' name="item_5.id" value="{{item5_5.id}}"/>
@@ -459,7 +459,7 @@
     <div class="box box7">{{item5_4.name}}</div>
     <div class="box box7">{{item5_3.name}}</div>
     {% endif %}
-    {% if id == 5 %}
+    {% if loc_id == 5 %}
     <div class="box box8">{{item4_5.name}}
       <input type="text" name="item_5" />
       <input type='hidden' name="item_5.id" value="{{item4_5.id}}"/>
@@ -477,7 +477,7 @@
     <div class="box box8">{{item4_4.name}}</div>
     <div class="box box8">{{item4_3.name}}</div>
     {% endif %}
-    {% if id == 4 %}
+    {% if loc_id == 4 %}
     <div class="box box9">{{item3_5.name}}
       <input type="text" name="item_5" />
       <input type='hidden' name="item_5.id" value="{{item3_5.id}}"/>
