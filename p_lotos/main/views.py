@@ -354,7 +354,8 @@ def edit(request, id):
 
 
 def index(request):
-    main_id = 30
+    item_id = Genre.objects.get(pk=4255)
+    main_id = item_id.name
     to_fill(main_id)
     item0_0 = Genre.objects.get(pk=main_id)
     item0_0_child = item0_0.get_children()
