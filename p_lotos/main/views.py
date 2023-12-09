@@ -72,9 +72,12 @@ def show_genres(request):
 def themes(request):
     if request.method == 'POST':
         item = request.POST.get('item')
-        obj = Genre.objects.get(pk=4255)
-        obj.name = item
-        obj.save()
+        obj_small = Genre.objects.get(pk=4255)
+        obj_small.name = item
+        obj_small.save()
+        obj_big = Genre.objects.get(pk=14853)
+        obj_big.name = item
+        obj_big.save()
         return redirect('home')
     else:
         item = Genre.objects.get(pk=11515)
