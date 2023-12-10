@@ -75,7 +75,7 @@ def themes(request):
         obj_small = Genre.objects.get(pk=4255)
         obj_small.name = item
         obj_small.save()
-        obj_big = Genre.objects.get(pk=14853)
+        obj_big = Genre.objects.get(pk=18563)
         obj_big.name = item
         obj_big.save()
         return redirect('home')
@@ -363,6 +363,10 @@ def index(request):
         obj.name = user_id
         obj.save()
 
+    # to begin with
+    hi_id = Genre.objects.get(pk=18563)
+
+    # to current center
     item_id = Genre.objects.get(pk=4255)
     main_id = item_id.name
     to_fill(main_id)
@@ -474,6 +478,7 @@ def index(request):
     item8_8 = item8_0_child[7]
 
     data = {
+        'hi_id': hi_id,
         'item0_0': item0_0,
         'item0_1': item0_1,
         'item0_2': item0_2,
