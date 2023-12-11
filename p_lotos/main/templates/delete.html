@@ -19,7 +19,9 @@
         <label>Выберите поле</label><br>
     <div>
         {% for item in genres %}
-        <input type="checkbox" name="item" value="{{item.id}}" /> {{ item.name }} <br />
+            {% if item.name != '-' %}
+                <input type="checkbox" name="item" value="{{item.id}}" /> {{ item.name }} <br />
+            {% endif %}
         {% endfor %}
     </div>
     </p>

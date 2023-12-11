@@ -1,0 +1,41 @@
+{% load mptt_tags %}
+
+<body>
+<ul>
+    {% for item in genres %}
+        {% if item.name != '-' %}
+        <li>
+            {{item.name}}
+            {{item.id}}
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+
+<h2>Переименование полей</h2>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label>Выберите поле</label><br>
+    <div>
+        {% for item in genres %}
+            {% if item.name != '-' %}
+                <input type="checkbox" name="item_child" value="{{item.id}}" /> {{ item.name }} <br />
+            {% endif %}
+        {% endfor %}
+    </div>
+    </p>
+    <p>
+        <label>Выберите нового родителя</label><br>
+    <div>
+        {% for item in genres %}
+            {% if item.name != '-' %}
+                <input type="checkbox" name="item_parent" value="{{item.id}}" /> {{ item.name }} <br />
+            {% endif %}
+        {% endfor %}
+    </div>
+    </p>
+    <input type="submit" value="Поменять родителя" >
+</form>
+</body>

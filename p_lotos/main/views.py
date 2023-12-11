@@ -50,6 +50,19 @@ def rename(request):
         data = {'genres': Genre.objects.all()}
         return render(request, "rename.html", context=data)
 
+def replace_parent(request):
+    if request.method == 'POST':
+        new_name = request.POST.get('new_name')
+        item = request.POST.get('item')
+        if len(new_name) != 0:
+            obj = Genre.objects.get(pk=item)
+            obj.name = new_name
+            obj.save()
+        return redirect('show_genres')
+    else:
+        data = {'genres': Genre.objects.all()}
+        return render(request, "replace_parent.html", context=data)
+
 
 def delete(request):
     if request.method == 'POST':
