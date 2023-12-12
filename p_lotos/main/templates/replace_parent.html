@@ -21,7 +21,7 @@
     <div>
         {% for item in genres %}
             {% if item.name != '-' %}
-                <input type="checkbox" name="item_child" value="{{item.id}}" /> {{ item.name }} <br />
+                <input type="checkbox" name="child" value="{{item.id}}" /> {{ item.name }} <br />
             {% endif %}
         {% endfor %}
     </div>
@@ -31,7 +31,7 @@
     <div>
         {% for item in genres %}
             {% if item.name != '-' %}
-                <input type="checkbox" name="item_parent" value="{{item.id}}" /> {{ item.name }} <br />
+                <input type="checkbox" name="parent" value="{{item.id}}" /> {{ item.name }} <br />
             {% endif %}
         {% endfor %}
     </div>
