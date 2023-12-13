@@ -55,13 +55,14 @@ def replace_parent(request):
         child = request.POST.get('child')
         parent = request.POST.get('parent')
         if len(child) != 0:
-            obj = Genre.objects.get(pk=parent)
-            Genre.objects.create(name=child, parent=obj)
-            to_fill(child.id)
+            parent_obj = Genre.objects.get(pk=parent)
+            child_obj = Genre.objects.get(pk=child)
+            child_obj.parent = parent_obj
+            child_obj.save()
         return redirect('show_genres')
     else:
         data = {'genres': Genre.objects.all()}
-        return render(request, "create.html", context=data)
+        return render(request, "replace_parent.html", context=data)
 
 
 def delete(request):
