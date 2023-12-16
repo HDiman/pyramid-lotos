@@ -30,7 +30,6 @@ def create(request):
         if len(child) != 0:
             obj = Genre.objects.get(pk=parent)
             Genre.objects.create(name=child, parent=obj)
-            to_fill(child.id)
         return redirect('show_genres')
     else:
         data = {'genres': Genre.objects.all()}
