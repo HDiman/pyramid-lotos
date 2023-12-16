@@ -6,11 +6,15 @@ def to_fill(id):
     # check if there are 8 leafs
     item = Genre.objects.get(pk=id)
     item_child = item.get_children()
+
     item_num = len(item_child)
     if item_num < 8:
         num = 8 - item_num
         for i in range(num):
             Genre.objects.create(name='-', parent=item)
+
+    item = Genre.objects.get(pk=id)
+    item_child = item.get_children()
 
     # add leafs to leafs
     for i in range(8):
@@ -48,6 +52,7 @@ def rename(request):
     else:
         data = {'genres': Genre.objects.all()}
         return render(request, "rename.html", context=data)
+
 
 def replace_parent(request):
     if request.method == 'POST':
@@ -91,6 +96,7 @@ def themes(request):
         obj_big = Genre.objects.get(pk=18563)
         obj_big.name = item
         obj_big.save()
+        to_fill(item)
         return redirect('home')
     else:
         item = Genre.objects.get(pk=11515)
