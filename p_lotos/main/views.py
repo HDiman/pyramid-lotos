@@ -13,7 +13,6 @@ def to_fill(id):
         for i in range(num):
             Genre.objects.create(name='-', parent=item)
 
-    item = Genre.objects.get(pk=id)
     item_child = item.get_children()
 
     # add leafs to leafs
