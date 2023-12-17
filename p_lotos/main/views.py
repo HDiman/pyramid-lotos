@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+from django.core.exceptions import ObjectDoesNotExist
 from .models import Genre
+
 
 
 def to_fill(id):
@@ -383,6 +385,15 @@ def index(request):
 
     # to begin with
     hi_id = Genre.objects.get(pk=18563)
+    try:
+        some_id = Genre.objects.get(pk=hi_id.name)
+    except ObjectDoesNotExist:
+        hi_id = Genre.objects.get(pk=18563)
+        hi_id.name = 30
+        hi_id.save()
+        item_id = Genre.objects.get(pk=4255)
+        item_id.name = 30
+        item_id.save()
 
     # to current center
     item_id = Genre.objects.get(pk=4255)
