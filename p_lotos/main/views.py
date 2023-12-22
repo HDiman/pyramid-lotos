@@ -385,7 +385,7 @@ def index(request):
 
     # to begin with
     hi_id = Genre.objects.get(pk=18563)
-    try:
+    try:  # check if object had deleted
         some_id = Genre.objects.get(pk=hi_id.name)
     except ObjectDoesNotExist:
         hi_id = Genre.objects.get(pk=18563)
