@@ -375,10 +375,6 @@ def edit(request, loc_id):
             }
         return render(request, 'edit.html', context=data)
 
-# parent_obj = Genre.objects.get(pk=parent)
-# child_obj = Genre.objects.get(pk=child)
-# child_obj.parent = parent_obj
-# child_obj.save()
 
 def index(request):
     if request.method == 'POST':
@@ -387,20 +383,22 @@ def index(request):
         obj.name = user_id  # replace number
         obj.save()
 
-        # obj_1 = Genre.objects.get(pk=4255)  # object
-        # hi_id = Genre.objects.get(pk=18563)
-        # obj_parent_1 = obj.parent
-        # hi_id.name = obj_parent.id
+    # looking for parent
+    num_of_obj = Genre.objects.get(pk=4255)
+    child_obj = Genre.objects.get(pk=num_of_obj.name)
+    parent_of_obj = child_obj.parent
+    hi_id = Genre.objects.get(pk=18563)
+    try:
+        hi_id.name = parent_of_obj.id
+        hi_id.save()
+    except AttributeError:
+        pass
+        # hi_id.name = child_obj.id
         # hi_id.save()
-
-    # for test
-    # obj_1 = Genre.objects.get(pk=4255)
-    # obj_parent_1 = obj_1.parent
-
 
     # to begin with
     hi_id = Genre.objects.get(pk=18563)
-    try:  # check if object had deleted
+    try:  # check if object was deleted
         some_id = Genre.objects.get(pk=hi_id.name)
     except ObjectDoesNotExist:
         hi_id = Genre.objects.get(pk=18563)
@@ -522,8 +520,7 @@ def index(request):
     item8_8 = item8_0_child[7]
 
     data = {
-        # 'obj': obj_1,
-        'obj_parent': item_id.id,
+        # 'obj_parent': parent_name,
         'hi_id': hi_id,
         'item0_0': item0_0,
         'item0_1': item0_1,
