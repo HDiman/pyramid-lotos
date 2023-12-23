@@ -83,9 +83,9 @@ def delete(request):
         obj.delete()
         return redirect('show_genres')
     else:
-        children = Genre.objects.get(pk=80).get_children()
-        data = {'genres': children}
-        # data = {'genres': Genre.objects.all()}
+        # children = Genre.objects.get(pk=80).get_children()
+        # data = {'genres': children}
+        data = {'genres': Genre.objects.all()}
         return render(request, "delete.html", context=data)
 
 
@@ -108,8 +108,8 @@ def themes(request):
         to_fill(item)
         return redirect('home')
     else:
-        item = Genre.objects.get(pk=80)
-        # item = Genre.objects.get(pk=11515)
+        # item = Genre.objects.get(pk=80)
+        item = Genre.objects.get(pk=11515)
         item_children = item.get_children()
         data = {
             'item': item,
