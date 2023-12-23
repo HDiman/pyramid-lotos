@@ -3,12 +3,12 @@
 <body>
 <ul>
     {% for item in genres %}
-    {% if item.name != '-' %}
-    <li>
-        {{item.name}}
-        {{item.id}}
-    </li>
-    {% endif %}
+        {% if item.name != '-' %}
+            <li>
+                {{item.name}}
+                {{item.id}}
+            </li>
+        {% endif %}
     {% endfor %}
 </ul>
 
@@ -16,14 +16,14 @@
 <h2>Удаление полей</h2>
 <form method="POST">
     {% csrf_token %}
-        <label>Выберите поле</label><br>
-    <div>
-        {% for item in genres %}
+    <label>Выберите поле</label><br>
+        <div>
+            {% for item in genres %}
             {% if item.name != '-' %}
-                <input type="checkbox" name="item" value="{{item.id}}" /> {{ item.name }} <br />
+            <input type="checkbox" name="item" value="{{item.id}}" /> {{ item.name }} <br />
             {% endif %}
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
     </p>
     <input type="submit" value="Удалить" >
 </form>

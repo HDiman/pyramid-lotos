@@ -60,10 +60,16 @@ def replace_parent(request):
         child = request.POST.get('child')
         parent = request.POST.get('parent')
         if len(child) != 0:
-            parent_obj = Genre.objects.get(pk=parent)
-            child_obj = Genre.objects.get(pk=child)
-            child_obj.parent = parent_obj
-            child_obj.save()
+            parent_obj = Genre.objects.get(pk=parent)  # parent's object
+            parents_children = parent_obj.get_children()  # parent of all 8 children
+            child_obj = Genre.objects.get(pk=child)  # object of a new child
+            for item in parents_children:  # checking each child
+                if item.name == '-':  # check if there ia no child
+                    child_obj.parent = parent_obj  # adapted child
+                    child_obj.save()
+                    return redirect('show_genres')
+                # else:
+                #     pass
         return redirect('show_genres')
     else:
         data = {'genres': Genre.objects.all()}
@@ -77,7 +83,9 @@ def delete(request):
         obj.delete()
         return redirect('show_genres')
     else:
-        data = {'genres': Genre.objects.all()}
+        children = Genre.objects.get(pk=80).get_children()
+        data = {'genres': children}
+        # data = {'genres': Genre.objects.all()}
         return render(request, "delete.html", context=data)
 
 
@@ -100,7 +108,8 @@ def themes(request):
         to_fill(item)
         return redirect('home')
     else:
-        item = Genre.objects.get(pk=11515)
+        item = Genre.objects.get(pk=80)
+        # item = Genre.objects.get(pk=11515)
         item_children = item.get_children()
         data = {
             'item': item,
@@ -520,7 +529,7 @@ def index(request):
     item8_8 = item8_0_child[7]
 
     data = {
-        # 'obj_parent': parent_name,
+        'test': child_obj.id,
         'hi_id': hi_id,
         'item0_0': item0_0,
         'item0_1': item0_1,
