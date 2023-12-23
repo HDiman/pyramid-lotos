@@ -67,9 +67,10 @@ def replace_parent(request):
                 if item.name == '-':  # check if there ia no child
                     child_obj.parent = parent_obj  # adapted child
                     child_obj.save()
+                    # obj = Genre.objects.get(pk=item.id)
+                    # obj.delete()
+                    item.delete()
                     return redirect('show_genres')
-                # else:
-                #     pass
         return redirect('show_genres')
     else:
         data = {'genres': Genre.objects.all()}
@@ -529,7 +530,7 @@ def index(request):
     item8_8 = item8_0_child[7]
 
     data = {
-        'test': child_obj.id,
+        # 'test': child_obj.id,  # for test purpose
         'hi_id': hi_id,
         'item0_0': item0_0,
         'item0_1': item0_1,
