@@ -5,7 +5,7 @@
     text-align: center;
     border: solid;
     grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(9, 75px);
+    grid-template-rows: repeat(9, 83.3px);
 }
 
 .box {
